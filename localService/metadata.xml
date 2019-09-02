@@ -1,0 +1,32 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZMM_CAM_PERSO_ENV_SRV" xml:lang="pt" sap:schema-version="1">
+			<EntityType Name="CamPersoDDGenCores" sap:content-version="1">
+				<Key><PropertyRef Name="IvAtinn"/><PropertyRef Name="Atwrt"/></Key><Property Name="IvAtinn" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Atinn" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Atwrt" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Atwtb" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="CamPersoEnviaPDV" sap:content-version="1">
+				<Key><PropertyRef Name="Vendedor"/><PropertyRef Name="NmCliente"/><PropertyRef Name="Matnr"/></Key><Property Name="Vendedor" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Fornecedor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NmCliente" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Nome 1" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Stcd2" Type="Edm.String" Nullable="false" MaxLength="11" sap:unicode="false" sap:label="Nº ID fiscal 2"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Material" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NmPers" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false"
+					sap:label="Campo de caracteres do comprimento 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NmFonte" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Fonte das camisas personalizadas"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NmTpMat" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo Material"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NmCor" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Cor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NumPers" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Campo de 3 bytes de comprimento"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NumFonte" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Fonte das camisas personalizadas"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NumTpMat" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tipo Material"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="NumCor" Type="Edm.String" Nullable="false" MaxLength="18" sap:unicode="false" sap:label="Cor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Perso" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Caractere 1" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EvMensagem" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="Txt.mensagem"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EvStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Tipo mensagem"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityContainer Name="ZMM_CAM_PERSO_ENV_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="CamPersoDDGenCoresSet" EntityType="ZMM_CAM_PERSO_ENV_SRV.CamPersoDDGenCores" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="CamPersoEnviaPDVSet" EntityType="ZMM_CAM_PERSO_ENV_SRV.CamPersoEnviaPDV" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZMM_CAM_PERSO_ENV_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZMM_CAM_PERSO_ENV_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

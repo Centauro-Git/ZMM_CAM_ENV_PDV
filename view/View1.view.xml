@@ -1,0 +1,248 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="ZMM_CAM_PERSO_ENV_PDV.controller.View1" displayBlock="true">
+	<App id="idAppControl">
+		<sap.m.semantic:FullscreenPage xmlns:sap.m.semantic="sap.m.semantic" enableScrolling="false" id="view1PageCamPerso" showNavButton="false">
+			<!--<sap.m.semantic:content>-->
+			<!--<l:FixFlex>-->
+			<!--	<l:fixContent>-->
+			<ScrollContainer id="idScrollContainer" height="100%" vertical="true">
+				<Panel id="idInInfo" backgroundDesign="Solid">
+					<f:Form id="idPedido" editable="true">
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+								emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="1" singleContainerFullSize="false"/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="{i18n>lblColab}">
+										<f:fields>
+											<Input id="colab" required="true" change="onEnableSalvar" maxLength="10" placeholder="{i18n>infMatricula}" liveChange="onColabChange"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="{i18n>lblProduto}">
+										<f:fields>
+											<Input id="produto" required="true" change="onProdutoChange" placeholder="{i18n>infProduto}"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="{i18n>lblNome}">
+										<f:fields>
+											<Input id="nome" required="true" change="onEnableSalvar" maxLength="40" placeholder="{i18n>infCliente}"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="{i18n>lblCpf}">
+										<f:fields>
+											<Input id="cpf" change="onValidaCpfCnpj" maxLength="18"/>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement label="{i18n>lblEmail}">
+										<f:fields>
+											<Input id="email" change="onEmailValidation" placeholder="{i18n>infEmail}"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement>
+										<f:fields>
+											<CheckBox xmlns="sap.m" text="{i18n>lblCbPerso}" selected="false" id="cbPerso"/>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<f:Form id="idCamNome" editable="true">
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+								emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="1" singleContainerFullSize="false"/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement>
+										<f:fields>
+											<VBox>
+												<Label text="{i18n>lblNmPerso}" labelFor="nmPerso"/>
+												<Input id="nmPerso" maxLength="16" change="onPersoChange"/>
+											</VBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement>
+										<f:fields>
+											<VBox>
+												<Label text="{i18n>lblRbNmPos}" labelFor="rbNmPos"/>
+												<RadioButtonGroup id="rbNmPos">
+													<buttons>
+														<RadioButton id="NmPos1" text="{i18n>lblNmPos01}"/>
+														<RadioButton id="NmPos2" text="{i18n>lblNmPos02}"/>
+													</buttons>
+												</RadioButtonGroup>
+											</VBox>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement>
+										<f:fields>
+											<VBox>
+												<Label text="{i18n>lblRbNmAli}" labelFor="rbNmAli"/>
+												<RadioButtonGroup id="rbNmAli">
+													<buttons>
+														<RadioButton id="NmAli1" text="{i18n>lblNmAli01}"/>
+														<RadioButton id="Nmali2" text="{i18n>lblNmAli02}"/>
+													</buttons>
+												</RadioButtonGroup>
+											</VBox>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="{i18n>lblRbNmFt}">
+										<f:fields>
+											<RadioButtonGroup id="rbNmFt">
+												<buttons>
+													<RadioButton id="NmFt1" text="{i18n>lblNmFt01}"/>
+													<RadioButton id="NmFt2" text="{i18n>lblNmFt02}"/>
+													<RadioButton id="NmFt3" text="{i18n>lblNmFt03}"/>
+													<RadioButton id="NmFt4" text="{i18n>lblNmFt04}" select="onGenSelected"/>
+												</buttons>
+											</RadioButtonGroup>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer id="NM_OPT" visible="false">
+								<f:formElements>
+									<f:FormElement id="NM_COR" label="{i18n>lblCor}" visible="false">
+										<f:fields>
+											<Select xmlns="sap.m" id="oNmCor" items="{/CamPersoDDGenCoresSet}">
+												<items>
+													<core:Item xmlns:core="sap.ui.core" key="{Atwrt}" text="{Atwtb}"/>
+												</items>
+											</Select>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+								<f:formElements>
+									<f:FormElement id="NM_ANO" label="{i18n>lblNmAno}" visible="false">
+										<f:fields>
+											<Select xmlns="sap.m" id="oNmAno" items="{model1>/anos}">
+												<items>
+													<core:Item xmlns:core="sap.ui.core" key="{model1>Gjahr}" text="{model1>Gjahr}"/>
+												</items>
+											</Select>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="{i18n>lblRbNmMat}">
+										<f:fields>
+											<RadioButtonGroup id="rbNmMat">
+												<buttons>
+													<RadioButton id="NmMat1" text="{i18n>lblNmMt01}" select="onNmFolSelected"/>
+													<RadioButton id="NmMat2" text="{i18n>lblNmMt02}" select="onNmInsSelected"/>
+													<RadioButton id="NmMat3" text="{i18n>lblNmMt03}" editable="false"/>
+												</buttons>
+											</RadioButtonGroup>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<f:Form id="idCamNumero" editable="true">
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+								emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="1" singleContainerFullSize="false"/>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement>
+										<f:fields>
+											<VBox>
+												<Label text="{i18n>lblNumPerso}" labelFor="numPerso"/>
+												<Input id="numPerso" change="onPersoChange" liveChange="onNumPersoChange" maxLength="3"/>
+											</VBox>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="{i18n>lblRbNumFt}">
+										<f:fields>
+											<RadioButtonGroup id="rbNumFt" select="onNumInsSelected">
+												<buttons>
+													<RadioButton id="NumFt1" text="{i18n>lblNumFt01}" select="onNumInsSelected"/>
+													<RadioButton id="NumFt2" text="{i18n>lblNumFt02}" select="onNumInsSelected"/>
+													<RadioButton id="NumFt3" text="{i18n>lblNumFt03}" select="onNumInsSelected"/>
+													<RadioButton id="NumFt4" text="{i18n>lblNumFt04}" select="onGenSelected"/>
+												</buttons>
+											</RadioButtonGroup>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer id="NUM_OPT">
+								<f:formElements>
+									<f:FormElement id="NUM_COR" label="{i18n>lblCor}">
+										<f:fields>
+											<Select xmlns="sap.m" id="oNumCor" items="{/CamPersoDDGenCoresSet}">
+												<items>
+													<core:Item xmlns:core="sap.ui.core" key="{Atwrt}" text="{Atwtb}"/>
+												</items>
+											</Select>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+								<f:formElements>
+									<f:FormElement id="NUM_ANO" label="{i18n>lblNumAno}" visible="false">
+										<f:fields>
+											<Select xmlns="sap.m" id="oNumAno" items="{model1>/anos}">
+												<items>
+													<core:Item xmlns:core="sap.ui.core" key="{model1>Gjahr}" text="{model1>Gjahr}"/>
+												</items>
+											</Select>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="{i18n>lblRbNumMat}">
+										<f:fields>
+											<RadioButtonGroup id="rbNumMat">
+												<buttons>
+													<RadioButton id="NumMat1" text="{i18n>lblNumMt01}" editable="false"/>
+													<RadioButton id="NumMat2" text="{i18n>lblNumMt02}" editable="false"/>
+													<RadioButton id="NumMat3" text="{i18n>lblNumMt03}" editable="false"/>
+												</buttons>
+											</RadioButtonGroup>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+				</Panel>
+			</ScrollContainer>
+			<!--	</l:fixContent>-->
+			<!--</l:FixFlex>-->
+			<!--</sap.m.semantic:content>-->
+			<sap.m.semantic:customFooterContent>
+				<Button text="{i18n>btCancelar}" icon="sap-icon://cancel" width="8rem" id="btnCancelar" press="onCancelaPedido" class="sapUiTinyMarginBegin"/>
+				<Button text="{i18n>btSalvar}" icon="sap-icon://save" width="8rem" id="btnSalvar" press="onSalvaPedido" class="sapUiTinyMarginBegin"
+					enabled="false"/>
+			</sap.m.semantic:customFooterContent>
+		</sap.m.semantic:FullscreenPage>
+	</App>
+</mvc:View>

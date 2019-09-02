@@ -1,0 +1,50 @@
+/*.ABC {*/
+/*    font-size: 4rem!important*/
+/*}*/
+
+/*.LVerde {*/
+/*	font-size: 1.1rem!important;*/
+/*    color: #5ad45a!important*/
+/*}*/
+
+/*.LVermelho {*/
+/*	font-size: 1.1rem!important;*/
+/*    color: #FF0000!important*/
+/*}*/
+
+/*.Subtitle {*/
+/*    font-size: 1.2rem!important*/
+/*}*/
+
+/*.Topicos {*/
+/*    font-size: 1.1rem!important*/
+/*}*/
+
+/*.tAzulColor {*/
+/*    background-color: #418ac7!important*/
+/*}*/
+
+/*.tLaranjaColor {*/
+/*    background-color: #fabd64!important*/
+/*}*/
+
+/*.tVerdeColor {*/
+/*    background-color: #5ad45a!important*/
+/*}*/
+
+.wNum {
+	  width: 5px;
+}
+
+/*.sapOvpBarList.sapOvpBarCondensedList {*/
+/*    padding: .65rem 1rem .75rem*/
+/*}*/
+
+/* Style the checkmark/indicator */
+/*.container .checkmark:after {*/
+/*.sapUiRb > label{*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  height: 25px;*/
+/*  width: 25px;*/
+/*}*/

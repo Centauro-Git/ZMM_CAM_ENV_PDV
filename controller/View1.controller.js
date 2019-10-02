@@ -119,7 +119,8 @@ sap.ui.define([
 					oEntry.NmAno = this.getView().byId("oNmAno").getSelectedItem().getKey();
 			}
 
-			oEntry.NumPers = parseInt( this.getView().byId("numPerso").getValue() );
+			if (this.getView().byId("numPerso").getValue() !== "")
+				oEntry.NumPers = parseInt( this.getView().byId("numPerso").getValue() );
 
 			oEntry.NmAli = this.getView().byId("rbNmAli").getSelectedIndex() + 1;
 			oEntry.NmAli = "0" + oEntry.NmAli;
